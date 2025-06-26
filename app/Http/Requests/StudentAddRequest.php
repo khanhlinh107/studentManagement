@@ -23,9 +23,9 @@ class StudentAddRequest extends FormRequest
     {
         return [
             //
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:255|regex:/^[\p{L}\s]+$/u',
             'email' => 'required|email|unique:students,email',
-            'age' => 'required|integer|min:1|max:100',
+            'age' => 'required|integer|min:1|max:150',
             'date_of_birth' => 'required|date',
             'gender' => 'required|in:m,f',
             'score' => 'required|integer|min:0|max:100',
@@ -37,7 +37,8 @@ class StudentAddRequest extends FormRequest
     {
         return [
             'name.required' => 'Please Write Student Name',
-            'age.max' => 'Student can not be older than 100'
+            'age.max' => 'Student can not be older than 100',
+            'name.regex' => 'Name must only contain letters and spaces.',
         ];
     }
 }
