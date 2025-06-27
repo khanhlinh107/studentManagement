@@ -31,7 +31,7 @@
 git clone https://github.com/khanhlinh107/studentManagement.git
 public aiven: https://console.aiven.io/account/a540f2d0eaf3/project/studentmanagement123/services/mysql-35231c0e/databases
 public link(codespaces): https://silver-tribble-69wxqxxg7vjq2rxp9-5173.app.github.dev/
-Link video demo: https://youtu.be/8a1BNCHEG20
+Link video demo: https://drive.google.com/file/d/17TIX2NI65VLAb9YGHhKxNbvZcwJoL8pX/view?usp=drive_link
 cd C:\xampp\htdocs\studentManagement
 composer install
 npm install && npm run dev   # Nếu có
