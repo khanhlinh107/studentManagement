@@ -20,8 +20,8 @@ return new class extends Migration
             $table->enum('gender', ['m', 'f'])->default('m');
             $table->integer('score')->nullable(false)->default(0);
             $table->string('image')->nullable(true);
-            $table->foreignId('user_id')->constrained('users')->unique();
-            $table->foreignId('class_id')->nullable(true)->constrained('classes');
+            $table->foreignId('user_id')->nullable()->constrained('users')->nullOnDelete();
+            $table->foreignId('class_id')->nullable(true)->constrained('classes')->nullOnDelete();
             $table->timestamps();
         });
     }

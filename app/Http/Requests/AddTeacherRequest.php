@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StudentAddRequest extends FormRequest
+class AddTeacherRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,11 @@ class StudentAddRequest extends FormRequest
         return [
             //
             'name' => 'required|string|max:255|regex:/^[\p{L}\s]+$/u',
-            'email' => 'required|email|unique:students,email',
+            'email' => 'required|email|unique:teachers,email',
             'age' => 'required|integer|min:1|max:150',
             'date_of_birth' => 'required|date',
             'gender' => 'required|in:m,f',
-            'score' => 'required|integer|min:0|max:100',
+            'phone'=> 'required|string|max:20',
             'image' => 'nullable|image|mimes:png,jpg,gif|max:2048'
         ];
     }
@@ -36,9 +36,10 @@ class StudentAddRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'Please write student name',
-            'age.max' => 'Student can not be older than 100',
+            'name.required' => 'Please write teacher name',
+            'age.max' => 'Teacher can not be older than 100',
             'name.regex' => 'Name must only contain letters and spaces.',
+            'phone.max'=> 'Phone number can not be longer than 20 characters',
         ];
     }
 }

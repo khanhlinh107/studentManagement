@@ -27,8 +27,8 @@ Route::prefix('student')->controller(StudentController::class)->middleware('auth
 
 Route::prefix('teachers')->controller(TeachersController::class)->middleware('teachers')->group(function () {
     Route::get('/', 'index');
-    Route::view('add', 'teachers.add');
-    Route::post('create', 'create');
+    Route::get('add', 'create');
+    Route::post('create', 'store');
     Route::get('edit/{id}', 'edit');
     Route::post('update/{id}', 'update');
     Route::delete('delete/{id}', 'destroy');

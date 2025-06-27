@@ -1,20 +1,28 @@
 @extends('layouts.app_custom')
 @section('head')
-    <title>Add Students</title>
+    <title>Add Teachers</title>
 @endsection
 
 
 @section('content')
-    <x-ErrorsComponent className="alert alert-danger" />
-
+    {{-- <x-ErrorsComponent className="alert alert-danger" /> --}}
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul class="mb-0">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
     <section>
         <div class="card shadow-lg">
             <div class="card-header bg-primary text-white">
-                <h5 class="mb-0">Student Registration</h5>
+                <h5 class="mb-0">Teacher Registration</h5>
             </div>
             <div class="card-body">
-                <form action="{{ URL('student/create') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ url('teachers/create') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
@@ -47,10 +55,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="score" class="form-label">Score</label>
-                        <input type="number" class="form-control" id="score" name="score" value="{{ old('score') }}">
-                    </div>
+                   
+                   <div class="mb-3">
+    <label for="phone" class="form-label">Phone</label>
+    <input type="text" class="form-control" id="phone" name="phone" value="{{ old('phone') }}">
+</div>
+
 
                     <div class="mb-3">
                         <label for="image" class="form-label">Image</label>

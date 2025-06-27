@@ -139,14 +139,14 @@
                 <tr>
                     <td>{{ $class->id }}</td>
                     <td>{{ $class->name }}</td>
-                    <td>{{ $class->teacher->name }}</td>
+                    <td>{{ $class->teacher?->name ?? 'N/A' }}</td>
                     <td>{{ $class->description }}</td>
                     <td>
                         <a class="btn btn-info" href="{{ URL('classes/assign-student', $class->id) }}">Assign Student</a>
                         <a class="btn btn-success" href="{{ URL('classes/edit', $class->id) }}">Edit</a>
 
                         <form action="{{ URL('classes/delete', $class->id) }}" method="post" style="display:inline;"
-                            onsubmit="return confirm('Are you sure you want to delete this student')">
+                            onsubmit="return confirm('Are you sure you want to delete this class?')">
 
                             @csrf
                             @method('DELETE')

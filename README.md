@@ -29,10 +29,12 @@
 ## 🛠 Hướng dẫn chạy dự án:
 ```bash
 git clone https://github.com/khanhlinh107/studentManagement.git
-cd studentManagement
+public aiven: https://console.aiven.io/account/a540f2d0eaf3/project/studentmanagement123/services/mysql-35231c0e/databases
+public link(codespaces): https://silver-tribble-69wxqxxg7vjq2rxp9-5173.app.github.dev/
+Link video demo: https://youtu.be/8a1BNCHEG20
+cd C:\xampp\htdocs\studentManagement
 composer install
 npm install && npm run dev   # Nếu có
-cp .env.example .env
-php artisan key:generate
-php artisan migrate --seed
-php artisan serve
+Test thử:
++ Student: tester@gmail.com; pass: 123456789
++ Teacher: thaynam@gmail.com; pass: 123456789

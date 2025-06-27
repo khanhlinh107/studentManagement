@@ -7,7 +7,7 @@ use App\Models\Images;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
-
+use App\Http\Requests\AddTeacherRequest;
 class TeachersController extends Controller
 {
     public function index(Request $request)
@@ -29,8 +29,10 @@ class TeachersController extends Controller
         return view('teachers.add'); // Hiển thị form thêm
     }
 
-    public function store(Request $request)
+    public function store(AddTeacherRequest $request)
     {
+    
+        
         $imagePath = null;
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('photos', 'public');

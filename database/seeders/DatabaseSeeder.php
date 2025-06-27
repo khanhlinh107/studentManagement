@@ -11,6 +11,9 @@ use App\Models\Teachers;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
+
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -26,6 +29,20 @@ class DatabaseSeeder extends Seeder
         Subjects::factory(10)->create();
         ClassSubject::factory(30)->create();
         Grades::factory(60)->create();
+
+    $user = User::create([
+    'name' => 'Mr Nam',
+    'email' => 'thaynam@gmail.com',
+    'password' => Hash::make('123456789'),
+]);
+    Teachers::create([
+    'name' => 'Mr Nam',
+    'email' => 'thaynam@gmail.com',
+    'phone' => '0123456789',
+    'user_id' => $user->id,
+]);
+
+
         $this->call([
             CountryAndCitySeeder::class,
         ]);

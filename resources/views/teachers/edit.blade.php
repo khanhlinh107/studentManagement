@@ -1,6 +1,6 @@
 @extends('layouts.app_custom')
 @section('head')
-    <title>Edit Students</title>
+    <title>Edit Teachers</title>
 @endsection
 
 
@@ -8,7 +8,7 @@
     <section>
         <div class="card shadow-lg">
             <div class="card-header bg-warning text-white">
-                <h5 class="mb-0">Edit Student</h5>
+                <h5 class="mb-0">Edit Teacher</h5>
             </div>
             <div class="card-body">
                 <form action="{{ URL('student/update', $student->id) }}" method="POST">
